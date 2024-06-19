@@ -84,7 +84,7 @@ const SEARCH_LIMIT_INCREMENT: usize = 50;
 use tempfile::TempDir;
 
 #[cfg(test)]
-use crate::events::{EVENT, TOPIC_EVENT, CHINESE_EVENTS};
+use crate::events::{CHINESE_EVENTS, EVENT, TOPIC_EVENT};
 
 pub(crate) struct Index {
     index: tv::Index,
@@ -419,7 +419,7 @@ impl Index {
                 let chinese_tokenizer = CangJieTokenizer {
                     worker: Arc::new(Jieba::empty()), // empty dictionary
                     option: TokenizerOption::Unicode,
-                 };
+                };
                 index
                     .tokenizers()
                     .register(&tokenizer_name, chinese_tokenizer);
